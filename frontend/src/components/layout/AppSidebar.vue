@@ -1,16 +1,16 @@
 <template>
   <div class="app-sidebar" :class="{ 'app-sidebar--mini': mini }">
     <div class="app-sidebar-top">
-      <q-avatar v-if="mini" square size="40px" class="sidebar-brand-mark">
-        <q-icon name="account_balance" size="22px" />
+      <q-avatar v-if="mini" square size="32px" class="sidebar-brand-mark">
+        <q-icon name="account_balance" size="18px" />
       </q-avatar>
       <template v-else>
-        <q-avatar square size="40px" class="sidebar-brand-mark">
-          <q-icon name="account_balance" size="22px" />
+        <q-avatar square size="32px" class="sidebar-brand-mark">
+          <q-icon name="account_balance" size="18px" />
         </q-avatar>
         <div class="app-sidebar-brand-text">
           <strong>Provincial Assessor</strong>
-          <span>Records system</span>
+          <span>Records System</span>
         </div>
       </template>
     </div>
@@ -33,7 +33,7 @@
             class="app-sidebar-item"
           >
             <q-item-section avatar>
-              <q-icon :name="child.icon" size="20px" />
+              <q-icon :name="child.icon" size="18px" />
             </q-item-section>
             <q-item-section v-if="!mini">
               <q-item-label>{{ child.label }}</q-item-label>
@@ -81,8 +81,8 @@ const modules = computed(() => visibleModules(sessionUser.value));
 
 <style scoped>
 .app-sidebar {
-  background: linear-gradient(180deg, #153044 0%, #0f2838 100%);
-  color: #e8f0f4;
+  background: #1a2332;
+  color: #cbd5e1;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -90,38 +90,39 @@ const modules = computed(() => visibleModules(sessionUser.value));
 
 .app-sidebar-top {
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
-  gap: 12px;
-  min-height: 64px;
-  padding: 14px 16px;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 14px;
 }
 
 .app-sidebar--mini .app-sidebar-top {
   justify-content: center;
-  padding: 14px 8px;
+  padding: 10px 8px;
 }
 
 .sidebar-brand-mark {
-  background: rgba(215, 180, 106, 0.2);
-  color: #e8c468;
+  background: rgba(212, 168, 67, 0.15);
+  color: #d4a843;
 }
 
 .app-sidebar-brand-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   line-height: 1.2;
   min-width: 0;
 }
 
 .app-sidebar-brand-text strong {
-  font-size: 14px;
+  font-size: 0.78rem;
+  color: #f1f5f9;
 }
 
 .app-sidebar-brand-text span {
-  color: rgba(232, 240, 244, 0.65);
-  font-size: 11px;
+  color: rgba(203, 213, 225, 0.6);
+  font-size: 0.65rem;
 }
 
 .app-sidebar-scroll {
@@ -130,54 +131,55 @@ const modules = computed(() => visibleModules(sessionUser.value));
 }
 
 .app-sidebar-list {
-  padding: 8px 0 12px;
+  padding: 6px 0 10px;
 }
 
 .app-sidebar-module-label {
-  color: rgba(232, 240, 244, 0.45);
-  font-size: 10px;
+  color: rgba(203, 213, 225, 0.45);
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 12px 20px 6px;
+  letter-spacing: 0.06em;
+  padding: 10px 16px 4px;
   text-transform: uppercase;
 }
 
 .app-sidebar-mini-sep {
-  background: rgba(255, 255, 255, 0.1);
-  margin: 8px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 6px 10px;
 }
 
 .app-sidebar-item {
-  border-radius: 10px;
-  color: rgba(232, 240, 244, 0.88);
-  margin: 2px 10px;
-  min-height: 44px;
+  border-radius: 6px;
+  color: rgba(203, 213, 225, 0.85);
+  margin: 1px 8px;
+  min-height: 36px;
+  font-size: 0.78rem;
 }
 
 .app-sidebar--mini .app-sidebar-item {
   justify-content: center;
-  margin: 4px 8px;
+  margin: 2px 6px;
   padding: 0;
 }
 
 .app-sidebar-item :deep(.q-icon) {
-  color: rgba(232, 240, 244, 0.75);
+  color: rgba(203, 213, 225, 0.65);
 }
 
 .app-sidebar-item--active {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 3px 0 0 #d7b46a;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 3px 0 0 #d4a843;
+  color: #f1f5f9;
   font-weight: 600;
 }
 
 .app-sidebar-item--active :deep(.q-icon) {
-  color: #e8c468;
+  color: #d4a843;
 }
 
 .app-sidebar-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px;
 }
 
 .app-sidebar--mini .sidebar-footer-btn {
@@ -186,5 +188,6 @@ const modules = computed(() => visibleModules(sessionUser.value));
 
 .sidebar-footer-btn {
   width: 100%;
+  font-size: 0.72rem;
 }
 </style>

@@ -159,18 +159,18 @@ onMounted(loadUsers);
 
 <style scoped>
 .ws-dialog-card {
-  border-radius: 12px;
-  width: min(560px, 96vw);
+  border-radius: var(--radius, 8px);
+  width: min(520px, 96vw);
 }
 
 .ws-dialog-card__head {
-  background: var(--ws-primary-dark, #0f3f46);
+  background: var(--c-primary-dark, #1a3a5c);
   color: #fff;
 }
 
 .ws-form-grid {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
