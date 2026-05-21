@@ -2269,7 +2269,7 @@ watch(() => ({
 
 .filter-band {
   display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr)) repeat(3, minmax(140px, 1fr)) repeat(2, minmax(90px, 0.7fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 8px;
   margin-top: 8px;
   align-items: center;
