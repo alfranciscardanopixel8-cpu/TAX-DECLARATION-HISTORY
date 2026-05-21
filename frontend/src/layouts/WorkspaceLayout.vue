@@ -1,11 +1,11 @@
 <template>
-  <div v-if="authLoading" class="login-page boot-page">
-    <q-spinner color="primary" size="50px" />
-    <p class="login-page-subtitle">Loading records workspace…</p>
+  <div v-if="authLoading" class="boot-loader">
+    <q-spinner color="primary" size="36px" />
+    <p>Loading workspace...</p>
   </div>
 
   <q-layout v-else view="hHh Lpr lfr" class="app-layout">
-    <q-header elevated class="app-header text-white">
+    <q-header elevated class="app-header">
       <q-toolbar class="app-toolbar">
         <q-btn
           flat
@@ -14,22 +14,23 @@
           color="white"
           :icon="drawerOpen ? 'menu_open' : 'menu'"
           aria-label="Toggle navigation"
+          size="sm"
           @click="toggleDrawer"
         />
 
         <q-toolbar-title class="app-toolbar-title">
-          <span class="text-weight-medium">{{ pageTitle }}</span>
-          <div v-if="pageCaption" class="text-caption text-blue-grey-1">{{ pageCaption }}</div>
+          <span>{{ pageTitle }}</span>
+          <div v-if="pageCaption" class="toolbar-caption">{{ pageCaption }}</div>
         </q-toolbar-title>
 
         <q-badge
           outline
           :color="apiHealth.online ? 'positive' : 'warning'"
           class="q-mr-sm gt-xs"
-          :label="apiHealth.online ? 'API online' : 'API offline'"
+          :label="apiHealth.online ? 'Online' : 'Offline'"
         />
         <q-badge outline color="white" class="q-mr-sm gt-xs" :label="`${sessionUser?.name} · ${roleLabel(sessionUser?.role)}`" />
-        <q-btn flat no-caps color="white" icon="logout" label="Logout" @click="submitLogout" />
+        <q-btn flat no-caps color="white" icon="logout" label="Logout" size="sm" @click="submitLogout" />
       </q-toolbar>
     </q-header>
 
@@ -37,9 +38,9 @@
       v-model="drawerOpen"
       show-if-above
       bordered
-      :width="248"
+      :width="220"
       :mini="drawerMini"
-      :mini-width="72"
+      :mini-width="56"
       class="app-drawer"
       :breakpoint="1024"
     >
@@ -88,13 +89,11 @@ const routeMeta = computed(() => findRouteMeta(route.name) || {
 const pageTitle = computed(() => routeMeta.value.pageLabel);
 const pageCaption = computed(() => {
   const parts = [routeMeta.value.moduleLabel, routeMeta.value.caption].filter(Boolean);
-
   return parts.join(' · ');
 });
 
 function toggleDrawer() {
   drawerOpen.value = !drawerOpen.value;
-
   if (drawerOpen.value) {
     drawerMini.value = false;
   }
@@ -102,12 +101,10 @@ function toggleDrawer() {
 
 onMounted(async () => {
   await restoreSession();
-
   if (!sessionUser.value) {
     await router.replace({ name: 'login' });
     return;
   }
-
   drawerOpen.value = window.innerWidth >= 1024;
   startHealthPolling();
 });
@@ -125,27 +122,39 @@ watch(
 </script>
 
 <style scoped>
-.login-page.boot-page {
+.boot-loader {
   align-items: center;
-  background: linear-gradient(160deg, #e8f0ef 0%, #f6f8f8 45%, #eef3f2 100%);
+  background: var(--c-bg, #f4f6f9);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
   min-height: 100vh;
 }
 
+.boot-loader p {
+  color: var(--c-muted, #64748b);
+  font-size: 0.8rem;
+}
+
 .app-header {
-  background: #18324a !important;
+  background: #1a2332 !important;
 }
 
 .app-toolbar {
-  min-height: 56px;
-  padding: 0 12px 0 8px;
+  min-height: 44px;
+  padding: 0 10px 0 6px;
 }
 
 .app-toolbar-title {
-  font-size: 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.toolbar-caption {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
 }
 
 .app-drawer :deep(.q-drawer__content) {
@@ -154,7 +163,7 @@ watch(
 }
 
 .app-page-container {
-  background: #eef3f2;
+  background: var(--c-bg, #f4f6f9);
 }
 
 .app-page-container :deep(.scroll) {
@@ -166,7 +175,7 @@ watch(
   display: flex;
   flex-direction: column;
   justify-content: flex-start !important;
-  min-height: calc(100vh - 56px) !important;
+  min-height: calc(100vh - 44px) !important;
   padding: 0 !important;
 }
 
@@ -178,8 +187,8 @@ watch(
 .workspace-shell {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1560px;
-  padding: 20px 24px 32px;
+  max-width: 1440px;
+  padding: 16px 20px 24px;
   width: 100%;
 }
 </style>

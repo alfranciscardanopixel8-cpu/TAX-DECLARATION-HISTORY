@@ -11,7 +11,10 @@ body,
 }
 
 body {
-  background: #eef3f2;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--c-bg, #f4f6f9);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: var(--c-ink, #1e293b);
+  -webkit-font-smoothing: antialiased;
 }
 </style>
