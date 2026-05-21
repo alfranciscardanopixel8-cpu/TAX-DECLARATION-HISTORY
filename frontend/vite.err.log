@@ -1,0 +1,807 @@
+[2m1:44:02 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:225:11
+[33m  223|  
+  224|          <motion v-if="searchMeta" class="search-pagination row items-center justify-between q-mt-sm q-px-sm">
+  225|            <div class="text-caption text-blue-grey-7">
+     |             ^
+  226|              Page {{ searchMeta.current_page }} of {{ searchMeta.last_page }} · {{ searchMeta.total }} properties
+  227|            </motion>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:44:19 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:232:9
+[33m  230|              <q-btn outline dense color="primary" icon-right="chevron_right" label="Next" :disable="searchPage >= searchMeta.last_page" @click="changeSearchPage(searchPage + 1)" />
+  231|            </div>
+  232|          </motion>
+     |           ^
+  233|  
+  234|          <aside ref="recordPanel" class="profile-panel" v-if="selected">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:44:22 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:232:9
+[33m  230|              <q-btn outline dense color="primary" icon-right="chevron_right" label="Next" :disable="searchPage >= searchMeta.last_page" @click="changeSearchPage(searchPage + 1)" />
+  231|            </div>
+  232|          </motion>
+     |           ^
+  233|  
+  234|          <aside ref="recordPanel" class="profile-panel" v-if="selected">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:45:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:271:13
+[33m  269|                <strong>{{ dossierCounts.tax_declarations }}</strong>
+  270|              </div>
+  271|              <motion>
+     |               ^
+  272|                <span>Documents</span>
+  273|                <strong>{{ dossierCounts.documents }}</strong>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:46:07 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:366:15
+[33m  364|  
+  365|              <q-tab-panel name="digitize">
+  366|                <motion class="digitize-toolbar row items-center justify-between q-mb-md">
+     |                 ^
+  367|                  <div class="text-body2 text-blue-grey-7">
+  368|                    Register physical records, then upload scans to digitize them.[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:46:24 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:388:23
+[33m  386|                      <div v-if="entry.data_entry_events?.length" class="q-mt-sm">
+  387|                        <div class="text-caption text-weight-bold q-mb-xs">Data entry</div>
+  388|                        <motion v-for="log in entry.data_entry_events" :key="log.id" class="text-caption">
+     |                         ^
+  389|                          {{ log.description }} — {{ log.user?.name || 'System' }}
+  390|                        </div>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:47:27 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:563:15
+[33m  561|                  </q-item>
+  562|                </q-list>
+  563|                <motion v-else class="empty-state">No data entry events recorded yet.</div>
+     |                 ^
+  564|              </q-tab-panel>
+  565|            </q-tab-panels>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:47:42 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:563:81
+[33m  561|                  </q-item>
+  562|                </q-list>
+  563|                <div v-else class="empty-state">No data entry events recorded yet.</motion>
+     |                                                                                   ^
+  564|              </q-tab-panel>
+  565|            </q-tab-panels>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:47:50 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:863:13
+[33m  861|          <q-card-section class="row items-center justify-between">
+  862|            <div>
+  863|              <motion class="text-h6">Add Assessment Detail</div>
+     |               ^
+  864|              <div class="text-caption text-blue-grey-7">{{ selected?.pin }} | {{ selected?.lot_number }}</div>
+  865|            </div>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:58:10 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:41:13
+[33m  39 |            <div>
+  40 |              <div class="section-kicker">Provincial Assessor</div>
+  41 |              <motion class="text-h5 text-weight-bold">Tax Declaration Retrieval</div>
+     |               ^
+  42 |              <div class="text-body2 text-blue-grey-7">
+  43 |                Search a property and retrieve its complete tax declaration history, documents, and records.[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:58:12 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:41:76
+[33m  39 |            <div>
+  40 |              <div class="section-kicker">Provincial Assessor</div>
+  41 |              <div class="text-h5 text-weight-bold">Tax Declaration Retrieval</motion>
+     |                                                                              ^
+  42 |              <div class="text-body2 text-blue-grey-7">
+  43 |                Search a property and retrieve its complete tax declaration history, documents, and records.[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:59:09 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:238:78
+[33m  236|              <div>
+  237|                <div class="section-kicker">Property Record</div>
+  238|                <div class="text-h6 text-weight-bold">{{ selected.lot_number }}</motion>
+     |                                                                                ^
+  239|                <div class="text-body2 text-blue-grey-7">{{ selected.pin }} · {{ selected.barangay }}, {{ selected.municipality }}</div>
+  240|              </div>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:59:13 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:238:15
+[33m  236|              <div>
+  237|                <div class="section-kicker">Property Record</div>
+  238|                <motion class="text-h6 text-weight-bold">{{ selected.lot_number }}</div>
+     |                 ^
+  239|                <div class="text-body2 text-blue-grey-7">{{ selected.pin }} · {{ selected.barangay }}, {{ selected.municipality }}</div>
+  240|              </div>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m1:59:44 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:325:15
+[33m  323|                <p class="panel-lead">Every tax declaration for this property — expand a row to see owner, valuations, assessments, documents, and data entry.</p>
+  324|                <div v-if="!taxDeclarationTimeline.length" class="empty-state">No tax declarations on record.</div>
+  325|                <q-list v-else bordered separator class="timeline-list">
+     |                 ^
+  326|                  <q-expansion-item
+  327|                    v-for="(entry, index) in taxDeclarationTimeline"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:00:03 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:325:15
+[33m  323|                <p class="panel-lead">Every tax declaration for this property — expand a row to see owner, valuations, assessments, documents, and data entry.</p>
+  324|                <div v-if="!taxDeclarationTimeline.length" class="empty-state">No tax declarations on record.</div>
+  325|                <q-list v-else bordered separator class="timeline-list">
+     |                 ^
+  326|                  <q-expansion-item
+  327|                    v-for="(entry, index) in taxDeclarationTimeline"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:401:17
+[33m  399|  
+  400|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  401|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  402|                  <q-list bordered separator class="panel-list">
+  403|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:13 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:401:17
+[33m  399|  
+  400|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  401|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  402|                  <q-list bordered separator class="panel-list">
+  403|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:15 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:401:17
+[33m  399|  
+  400|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  401|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  402|                  <q-list bordered separator class="panel-list">
+  403|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:16 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:401:17
+[33m  399|  
+  400|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  401|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  402|                  <q-list bordered separator class="panel-list">
+  403|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:30 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:416:17
+[33m  414|  
+  415|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  416|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  417|                  <q-list bordered separator class="panel-list">
+  418|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:35 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:416:17
+[33m  414|  
+  415|                <div v-if="pendingDigitization.length" class="panel-section q-mb-md">
+  416|                  <motion class="panel-section-title">Awaiting digitization</div>
+     |                   ^
+  417|                  <q-list bordered separator class="panel-list">
+  418|                    <q-item v-for="document in pendingDigitization" :key="'pending-' + document.id">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:04:48 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:275:11
+[33m  273|                <strong>{{ dossierCounts.pending_digitization }}</strong>
+  274|              </div>
+  275|            </motion>
+     |             ^
+  276|  
+  277|            <q-tabs v-model="profileTab" dense align="justify" active-color="primary" indicator-color="primary" class="record-tabs">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:06:55 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:371:23
+[33m  369|                      <div v-if="entry.assessment_records?.length" class="timeline-block q-mt-sm">
+  370|                        <div class="timeline-block-title">Assessments</div>
+  371|                        <motion v-for="record in entry.assessment_records" :key="record.id" class="timeline-mini-row">
+     |                         ^
+  372|                          <strong>{{ record.assessment_type }}</strong>
+  373|                          <span>{{ money(record.assessed_value) }} assessed</span>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:06:56 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:371:23
+[33m  369|                      <div v-if="entry.assessment_records?.length" class="timeline-block q-mt-sm">
+  370|                        <div class="timeline-block-title">Assessments</div>
+  371|                        <motion v-for="record in entry.assessment_records" :key="record.id" class="timeline-mini-row">
+     |                         ^
+  372|                          <strong>{{ record.assessment_type }}</strong>
+  373|                          <span>{{ money(record.assessed_value) }} assessed</span>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:06:57 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:371:23
+[33m  369|                      <div v-if="entry.assessment_records?.length" class="timeline-block q-mt-sm">
+  370|                        <div class="timeline-block-title">Assessments</div>
+  371|                        <motion v-for="record in entry.assessment_records" :key="record.id" class="timeline-mini-row">
+     |                         ^
+  372|                          <strong>{{ record.assessment_type }}</strong>
+  373|                          <span>{{ money(record.assessed_value) }} assessed</span>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:22:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:228:11
+[33m  226|              Page {{ searchMeta.current_page }} of {{ searchMeta.last_page }} · {{ searchMeta.total }} properties
+  227|            </div>
+  228|            <motion class="row items-center q-gutter-sm">
+     |             ^
+  229|              <q-select
+  230|                v-model="searchPerPage"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:22:39 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:353:15
+[33m  351|                <p class="panel-lead">Complete tax declaration history — expand each TD to view assessments, documents, and data entry.</p>
+  352|                <div v-if="!taxDeclarationTimeline.length" class="empty-state">No tax declarations on record.</div>
+  353|                <q-list v-else bordered separator class="timeline-list">
+     |                 ^
+  354|                  <q-expansion-item
+  355|                    v-for="(entry, index) in taxDeclarationTimeline"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:22:48 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:353:15
+[33m  351|                <p class="panel-lead">Complete tax declaration history — expand each TD to view assessments, documents, and data entry.</p>
+  352|                <div v-if="!taxDeclarationTimeline.length" class="empty-state">No tax declarations on record.</div>
+  353|                <q-list v-else bordered separator class="timeline-list">
+     |                 ^
+  354|                  <q-expansion-item
+  355|                    v-for="(entry, index) in taxDeclarationTimeline"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:23:36 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:383:21
+[33m  381|                      <p>{{ entry.tax_declaration.memoranda || 'No memoranda recorded.' }}</p>
+  382|  
+  383|                      <motion v-if="entry.assessment_records?.length" class="timeline-block q-mt-sm">
+     |                       ^
+  384|                        <div class="timeline-block-title">Assessments</div>
+  385|                        <div v-for="record in entry.assessment_records" :key="record.id" class="timeline-mini-row">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:23:48 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:384:21
+[33m  382|                      <p>{{ entry.tax_declaration.memoranda || 'No memoranda recorded.' }}</p>
+  383|  
+  384|                      <motion v-if="entry.assessment_records?.length" class="timeline-block q-mt-sm">
+     |                       ^
+  385|                        <div class="timeline-block-title">Assessments</div>
+  386|                        <div v-for="record in entry.assessment_records" :key="record.id" class="timeline-mini-row">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:32:56 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:647:59
+[33m  645|                <div class="ui-block">
+  646|                  <div class="ui-block-head">
+  647|                    <div class="ui-block-title">Activity log</motion>
+     |                                                             ^
+  648|                    <q-select
+  649|                      v-model="auditTdFilter"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:32:58 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Invalid end tag.
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:647:59
+[33m  645|                <div class="ui-block">
+  646|                  <div class="ui-block-head">
+  647|                    <div class="ui-block-title">Activity log</motion>
+     |                                                             ^
+  648|                    <q-select
+  649|                      v-model="auditTdFilter"[39m
+[2m2:33:15 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:645:15
+[33m  643|  
+  644|              <q-tab-panel name="audit">
+  645|                <div class="ui-block">
+     |                 ^
+  646|                  <div class="ui-block-head">
+  647|                    <motion class="ui-block-title">Activity log</motion>[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:33:18 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:647:59
+[33m  645|                <div class="ui-block">
+  646|                  <div class="ui-block-head">
+  647|                    <div class="ui-block-title">Activity log</motion>
+     |                                                             ^
+  648|                    <q-select
+  649|                      v-model="auditTdFilter"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:33:19 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:647:59
+[33m  645|                <div class="ui-block">
+  646|                  <div class="ui-block-head">
+  647|                    <div class="ui-block-title">Activity log</motion>
+     |                                                             ^
+  648|                    <q-select
+  649|                      v-model="auditTdFilter"[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:42:23 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:265:13
+[33m  263|                <q-btn outline no-caps color="primary" icon="print" label="Print" @click="printRecord" />
+  264|                <q-btn outline no-caps color="primary" icon="download" label="Export" @click="exportRecord" />
+  265|              </motion>
+     |               ^
+  266|            </motion>
+  267|  [39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:50:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:50:35 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Invalid end tag.
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+[2m2:50:35 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:50:38 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Invalid end tag.
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+[2m2:50:39 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:50:40 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+[2m2:50:42 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Invalid end tag.
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+[2m2:50:42 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Invalid end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/provincial-assessor-system/frontend/src/pages/SearchPage.vue[39m:6:5
+[33m  4  |        <q-spinner color="primary" size="48px" />
+  5  |        <p>Loading records workspace…</p>
+  6  |      </div>
+     |       ^
+  7  |      <div v-else-if="!sessionUser" class="login-shell">
+  8  |        <q-card class="login-card">[39m
+      at createCompilerError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2391:9)
+      at Tokenizer.stateInClosingTagName (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\provincial-assessor-system\frontend\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/provincial-assessor-system/frontend/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)

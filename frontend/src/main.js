@@ -1,0 +1,99 @@
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import {
+  Quasar,
+  QLayout,
+  QHeader,
+  QDrawer,
+  QScrollArea,
+  QPageContainer,
+  QPage,
+  QToolbar,
+  QToolbarTitle,
+  QBtn,
+  QBtnDropdown,
+  QIcon,
+  QAvatar,
+  QCard,
+  QCardSection,
+  QSeparator,
+  QForm,
+  QInput,
+  QSelect,
+  QTable,
+  QTd,
+  QTr,
+  QTh,
+  QBadge,
+  QTabs,
+  QTab,
+  QTabPanels,
+  QTabPanel,
+  QList,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QDialog,
+  QFile,
+  QSpinner,
+  QTooltip,
+  QMenu,
+  QChip,
+  QBanner,
+  Notify,
+  ClosePopup
+} from 'quasar';
+import '@quasar/extras/material-icons/material-icons.css';
+import 'quasar/dist/quasar.css';
+import './styles/workspace.css';
+import App from './App.vue';
+import router from './router';
+
+createApp(App)
+  .use(createPinia())
+  .use(router)
+  .use(Quasar, {
+    plugins: { Notify },
+    directives: { ClosePopup },
+    components: {
+      QLayout,
+      QHeader,
+      QDrawer,
+      QScrollArea,
+      QPageContainer,
+      QPage,
+      QToolbar,
+      QToolbarTitle,
+      QBtn,
+      QBtnDropdown,
+      QIcon,
+      QAvatar,
+      QCard,
+      QCardSection,
+      QSeparator,
+      QForm,
+      QInput,
+      QSelect,
+      QTable,
+      QTd,
+      QTr,
+      QTh,
+      QBadge,
+      QTabs,
+      QTab,
+      QTabPanels,
+      QTabPanel,
+      QList,
+      QItem,
+      QItemSection,
+      QItemLabel,
+      QDialog,
+      QFile,
+      QSpinner,
+      QTooltip,
+      QMenu,
+      QChip,
+      QBanner
+    }
+  })
+  .mount('#app');

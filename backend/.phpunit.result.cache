@@ -1,0 +1,1 @@
+{"version":2,"defects":{"Tests\\Feature\\AuthTest::test_health_endpoint_is_available":8,"Tests\\Feature\\AuthTest::test_user_can_login_with_valid_credentials":8,"Tests\\Feature\\DossierTest::test_authenticated_user_can_fetch_property_dossier":8},"times":{"Tests\\Feature\\ExampleTest::test_the_application_returns_a_successful_response":0.041}}

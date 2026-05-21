@@ -1,0 +1,495 @@
+/* Provincial Assessor — unified workspace UI with TMVARI design system */
+
+.app-main-page,
+.ws-page {
+  /* TMVARI Color System */
+  --ws-bg: #dfe7f5;
+  --ws-surface: rgba(255, 255, 255, 0.96);
+  --ws-surface-soft: rgba(247, 250, 255, 0.98);
+  --ws-surface-muted: #edf2fb;
+  --ws-border: rgba(20, 39, 67, 0.11);
+  --ws-border-strong: rgba(20, 39, 67, 0.18);
+  --ws-primary: #2f62af;
+  --ws-primary-dark: #183154;
+  --ws-primary-soft: rgba(47, 98, 175, 0.08);
+  --ws-accent: #ffd07e;
+  --ws-ink: #162742;
+  --ws-muted: #657892;
+  --ws-success: #237a57;
+  --ws-violet: #6657a8;
+  --ws-amber: #a66321;
+  --ws-navy: #183154;
+  --ws-navy-light: #1e3f78;
+  --ws-blue: #2f62af;
+  --ws-blue-deep: #1e3f78;
+  
+  /* TMVARI Spacing & Radius */
+  --ws-radius: 22px;
+  --ws-radius-md: 16px;
+  --ws-radius-sm: 12px;
+  --ws-shadow: 0 18px 42px rgba(14, 34, 63, 0.16);
+  --ws-shadow-lg: 0 28px 60px rgba(17, 39, 72, 0.22);
+  --ws-gap: 16px;
+}
+
+body {
+  background:
+    radial-gradient(circle at top right, rgba(67, 116, 199, 0.3), transparent 24%),
+    linear-gradient(180deg, #edf2fb 0%, #dae4f4 100%);
+}
+
+.ws-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ws-gap);
+}
+
+/* Page header */
+.ws-page-header {
+  align-items: flex-start;
+  background:
+    radial-gradient(circle at top right, rgba(62, 121, 217, 0.16), transparent 40%),
+    linear-gradient(180deg, rgba(247, 250, 255, 0.98) 0%, rgba(239, 245, 253, 0.96) 100%);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  justify-content: space-between;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ws-kicker {
+  color: var(--ws-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.ws-title {
+  color: var(--ws-ink);
+  font-size: 1.95rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ws-lead {
+  color: var(--ws-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0 0;
+  max-width: 640px;
+}
+
+.ws-page-header__actions,
+.ws-btn-row {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cards */
+.ws-card {
+  background: var(--ws-surface);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(18px);
+}
+
+.ws-card:hover {
+  box-shadow: var(--ws-shadow-lg);
+}
+
+.ws-card--flush {
+  overflow: hidden;
+  padding: 0;
+}
+
+.ws-card__title {
+  color: var(--ws-blue);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Metrics */
+.ws-metric-grid {
+  display: grid;
+  gap: var(--ws-gap);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ws-metric-tile {
+  align-items: center;
+  background: var(--ws-surface);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+.ws-metric-tile .q-icon {
+  color: var(--ws-primary);
+  font-size: 28px;
+}
+
+.ws-metric-tile span {
+  color: var(--ws-muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ws-metric-tile strong {
+  color: var(--ws-ink);
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.ws-metric-tile .q-icon.success { color: var(--ws-success); }
+.ws-metric-tile .q-icon.violet { color: var(--ws-violet); }
+.ws-metric-tile .q-icon.amber { color: var(--ws-amber); }
+
+/* Filter grids */
+.ws-filter-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(240px, 1fr) minmax(180px, 260px) minmax(180px, 260px);
+}
+
+.ws-filter-grid--wide {
+  grid-template-columns: repeat(5, minmax(140px, 1fr)) repeat(3, minmax(160px, 1fr)) repeat(2, minmax(110px, 0.85fr));
+}
+
+/* Chips row */
+.ws-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ws-chip-row .q-chip {
+  background: rgba(47, 98, 175, 0.12);
+  border: 1px solid rgba(47, 98, 175, 0.24);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(14, 34, 63, 0.08);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.ws-chip-row .q-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(14, 34, 63, 0.16);
+  background: rgba(47, 98, 175, 0.18);
+  border-color: rgba(47, 98, 175, 0.32);
+}
+
+/* Tables */
+.ws-table {
+  border-radius: var(--ws-radius);
+  overflow: hidden;
+}
+
+.ws-table .q-table__top {
+  background: linear-gradient(90deg, #183154 0%, #245ea8 54%, #2f76d4 100%);
+  color: #fff;
+  min-height: 52px;
+  padding: 12px 16px;
+}
+
+.ws-table .q-table__title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.ws-table thead tr {
+  background: linear-gradient(180deg, #f0f4fa 0%, #e6ecf6 100%);
+}
+
+.ws-table th {
+  color: var(--ws-navy);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ws-table td {
+  border-color: rgba(20, 39, 67, 0.08);
+  color: var(--ws-ink);
+  font-size: 0.96rem;
+}
+
+.ws-table tbody tr {
+  transition: background 120ms ease;
+  cursor: pointer;
+}
+
+.ws-table tbody tr:hover {
+  background: rgba(47, 98, 175, 0.08);
+}
+
+.ws-table .q-table__bottom {
+  border-top: 1px solid var(--ws-border);
+  color: var(--ws-muted);
+}
+
+/* Lists */
+.ws-list {
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius-sm);
+  overflow: hidden;
+}
+
+.ws-list .q-item {
+  background: var(--ws-surface);
+  min-height: 64px;
+}
+
+.ws-list .q-item:not(:last-child) {
+  border-bottom: 1px solid var(--ws-border);
+}
+
+/* Empty state */
+.ws-empty {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 248, 253, 0.98) 100%);
+  border: 2px dashed rgba(47, 98, 175, 0.24);
+  border-radius: var(--ws-radius);
+  color: var(--ws-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  min-height: 240px;
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-icon-wrapper {
+  background: rgba(47, 98, 175, 0.12);
+  border: 1px solid rgba(47, 98, 175, 0.18);
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(14, 34, 63, 0.12);
+  z-index: 1;
+}
+
+.empty-icon-wrapper .q-icon {
+  color: var(--ws-blue);
+}
+
+.ws-empty strong {
+  color: var(--ws-ink);
+  font-size: 1.1rem;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.ws-empty span {
+  font-size: 0.95rem;
+  max-width: 400px;
+  color: var(--ws-muted);
+  z-index: 1;
+}
+
+.ws-empty--compact {
+  min-height: 120px;
+  padding: 24px;
+}
+
+/* Content layout (records search) */
+.ws-content-grid {
+  align-items: start;
+  display: grid;
+  gap: var(--ws-gap);
+  grid-template-columns: 1fr;
+}
+
+.ws-record-panel {
+  background: var(--ws-surface);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  overflow: visible;
+  max-width: 100%;
+  margin-top: var(--ws-gap);
+}
+
+.ws-record-panel__header {
+  border-bottom: 1px solid var(--ws-border);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  background: linear-gradient(90deg, #183154 0%, #245ea8 54%, #2f76d4 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(15, 37, 74, 0.28);
+}
+
+.ws-record-panel__header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 208, 126, 0.22), transparent 44%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.header-content {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  z-index: 1;
+}
+
+.property-icon {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(9, 24, 46, 0.18);
+}
+
+.property-icon .q-icon {
+  color: white;
+}
+
+.ws-record-panel__header .ws-kicker {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ws-record-panel__header .text-h6 {
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.ws-record-panel__header .text-body2 {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 600;
+}
+
+.status-badge {
+  z-index: 1;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Form stack in import etc */
+.ws-form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+}
+
+/* Global Quasar tweaks inside workspace */
+.app-main-page .q-btn {
+  border-radius: var(--ws-radius-sm);
+  font-weight: 700;
+  min-height: 42px;
+  letter-spacing: 0.02em;
+}
+
+.app-main-page .q-field--outlined .q-field__control {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--ws-radius-sm);
+  min-height: 50px;
+}
+
+.app-main-page .q-field--outlined .q-field__control::before {
+  border-color: var(--ws-border);
+}
+
+.app-main-page .q-field--outlined.q-field--focused .q-field__control::after {
+  border-color: var(--ws-primary);
+}
+
+.app-main-page .q-field__label {
+  color: var(--ws-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.app-main-page .q-field__native,
+.app-main-page .q-field__input {
+  font-weight: 600;
+}
+
+.app-main-page .q-badge {
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.app-main-page .q-banner {
+  border-radius: var(--ws-radius-md);
+}
+
+@media (max-width: 1180px) {
+  .ws-filter-grid--wide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .ws-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ws-filter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ws-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
