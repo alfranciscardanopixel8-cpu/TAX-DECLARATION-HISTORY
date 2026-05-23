@@ -17,9 +17,22 @@
           @click="toggleDrawer"
         />
 
+        <div class="app-brand">
+          <q-icon name="account_balance" size="28px" class="app-brand-icon" />
+          <div class="app-brand-text">
+            <strong>Provincial Assessor's Office</strong>
+            <span>Real Property Records System</span>
+          </div>
+        </div>
+
         <q-toolbar-title class="app-toolbar-title">
-          <span class="text-weight-medium">{{ pageTitle }}</span>
-          <div v-if="pageCaption" class="text-caption text-blue-grey-1">{{ pageCaption }}</div>
+          <div class="toolbar-title-content">
+            <q-icon :name="pageIcon" size="20px" class="toolbar-title-icon" />
+            <div class="toolbar-title-text">
+              <span class="toolbar-title-main">{{ pageTitle }}</span>
+              <span v-if="pageCaption" class="toolbar-title-caption">{{ pageCaption }}</span>
+            </div>
+          </div>
         </q-toolbar-title>
 
         <q-badge
@@ -28,6 +41,34 @@
           class="q-mr-sm gt-xs"
           :label="apiHealth.online ? 'API online' : 'API offline'"
         />
+
+        <q-btn flat round dense color="white" icon="notifications" class="q-mr-sm">
+          <q-badge v-if="pendingApprovals > 0" floating color="amber" text-color="black">{{ pendingApprovals }}</q-badge>
+          <q-menu anchor="bottom right" self="top right">
+            <q-card style="min-width: 320px;">
+              <q-card-section class="bg-primary text-white">
+                <div class="text-subtitle2 text-weight-bold">Notifications</div>
+              </q-card-section>
+              <q-list separator>
+                <q-item v-if="pendingApprovals > 0" clickable @click="goToApprovals">
+                  <q-item-section avatar>
+                    <q-icon name="pending_actions" color="amber-9" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>{{ pendingApprovals }} TD{{ pendingApprovals > 1 ? 's' : '' }} pending approval</q-item-label>
+                    <q-item-label caption>Click to review</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item v-else>
+                  <q-item-section>
+                    <q-item-label class="text-blue-grey-6">No pending notifications</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-card>
+          </q-menu>
+        </q-btn>
+
         <q-badge outline color="white" class="q-mr-sm gt-xs" :label="`${sessionUser?.name} · ${roleLabel(sessionUser?.role)}`" />
         <q-btn flat no-caps color="white" icon="logout" label="Logout" @click="submitLogout" />
       </q-toolbar>
@@ -62,11 +103,13 @@ import { useRoute, useRouter } from 'vue-router';
 import { findRouteMeta } from '../config/workspaceModules';
 import { useAuth } from '../composables/useAuth';
 import AppSidebar from '../components/layout/AppSidebar.vue';
+import { fetchDashboard } from '../services/api';
 
 const router = useRouter();
 const route = useRoute();
 const drawerOpen = ref(true);
 const drawerMini = ref(false);
+const pendingApprovals = ref(0);
 
 const {
   sessionUser,
@@ -79,6 +122,22 @@ const {
   roleLabel
 } = useAuth();
 
+async function loadPendingApprovals() {
+  if (!sessionUser.value) return;
+  try {
+    const data = await fetchDashboard();
+    if (data) {
+      pendingApprovals.value = data.pending_approvals || 0;
+    }
+  } catch {
+    // ignore
+  }
+}
+
+function goToApprovals() {
+  router.push({ name: 'workspace-records', query: { td_status: 'For Review' } });
+}
+
 const routeMeta = computed(() => findRouteMeta(route.name) || {
   moduleLabel: 'Workspace',
   pageLabel: 'Provincial Assessor',
@@ -86,6 +145,17 @@ const routeMeta = computed(() => findRouteMeta(route.name) || {
 });
 
 const pageTitle = computed(() => routeMeta.value.pageLabel);
+const pageIcon = computed(() => {
+  const map = {
+    'workspace-dashboard': 'dashboard',
+    'workspace-records': 'search',
+    'workspace-digitize': 'scanner',
+    'workspace-activity': 'history',
+    'workspace-staff': 'group',
+    'workspace-import': 'upload_file'
+  };
+  return map[route.name] || 'apps';
+});
 const pageCaption = computed(() => {
   const parts = [routeMeta.value.moduleLabel, routeMeta.value.caption].filter(Boolean);
 
@@ -110,6 +180,9 @@ onMounted(async () => {
 
   drawerOpen.value = window.innerWidth >= 1024;
   startHealthPolling();
+  loadPendingApprovals();
+  // Refresh pending approvals every 60 seconds
+  setInterval(loadPendingApprovals, 60000);
 });
 
 onUnmounted(stopHealthPolling);
@@ -146,6 +219,87 @@ watch(
 
 .app-toolbar-title {
   font-size: 1rem;
+  padding-left: 8px;
+}
+
+.toolbar-title-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.toolbar-title-icon {
+  color: #ffd07e;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.toolbar-title-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.toolbar-title-main {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toolbar-title-caption {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  margin-right: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  height: 100%;
+}
+
+.app-brand-icon {
+  color: #ffd07e;
+}
+
+.app-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.app-brand-text strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.app-brand-text span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .app-brand-text {
+    display: none;
+  }
 }
 
 .app-drawer :deep(.q-drawer__content) {

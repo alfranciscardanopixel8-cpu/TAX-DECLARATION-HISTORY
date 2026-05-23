@@ -40,7 +40,11 @@ import {
   QMenu,
   QChip,
   QBanner,
+  QFab,
+  QFabAction,
+  QPageSticky,
   Notify,
+  Dialog,
   ClosePopup
 } from 'quasar';
 import '@quasar/extras/material-icons/material-icons.css';
@@ -53,7 +57,7 @@ createApp(App)
   .use(createPinia())
   .use(router)
   .use(Quasar, {
-    plugins: { Notify },
+    plugins: { Notify, Dialog },
     directives: { ClosePopup },
     components: {
       QLayout,
@@ -93,7 +97,10 @@ createApp(App)
       QTooltip,
       QMenu,
       QChip,
-      QBanner
+      QBanner,
+      QFab,
+      QFabAction,
+      QPageSticky
     }
   })
   .mount('#app');

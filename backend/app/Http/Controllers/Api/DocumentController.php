@@ -89,7 +89,7 @@ class DocumentController extends Controller
 
         return response()->json($property->fresh()->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'assessmentRecords.taxDeclaration',
             'documents.taxDeclaration',
@@ -137,7 +137,7 @@ class DocumentController extends Controller
 
         return response()->json($property->fresh()->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'assessmentRecords.taxDeclaration',
             'documents.taxDeclaration',
@@ -168,7 +168,7 @@ class DocumentController extends Controller
 
         return response()->json($property->fresh()->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'assessmentRecords.taxDeclaration',
             'documents.taxDeclaration',
@@ -236,7 +236,7 @@ class DocumentController extends Controller
 
         return response()->json($property->fresh()->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'taxDeclarations.documents.digitizedBy:id,name,role',
             'assessmentRecords.taxDeclaration',

@@ -17,21 +17,25 @@ class Property extends Model
         'lot_number',
         'survey_number',
         'title_number',
+        'land_pin_reference',
         'barangay',
         'municipality',
         'province',
         'classification',
+        'property_kind',
         'actual_use',
         'land_area',
         'unit_of_measure',
         'status',
         'remarks',
+        'extra_attributes',
     ];
 
     protected function casts(): array
     {
         return [
             'land_area' => 'decimal:2',
+            'extra_attributes' => 'array',
         ];
     }
 

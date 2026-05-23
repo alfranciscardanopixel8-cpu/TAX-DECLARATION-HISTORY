@@ -6,12 +6,12 @@
 export const workspaceModules = [
   {
     id: 'dashboard',
-    label: 'Dashboard',
+    label: '',
     icon: 'dashboard',
     children: [
       {
         name: 'workspace-dashboard',
-        label: 'Overview',
+        label: 'Dashboard',
         icon: 'dashboard',
         caption: 'Office-wide summary and quick access'
       }

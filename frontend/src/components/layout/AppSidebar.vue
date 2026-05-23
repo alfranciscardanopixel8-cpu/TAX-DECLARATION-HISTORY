@@ -18,10 +18,10 @@
     <q-scroll-area class="app-sidebar-scroll">
       <q-list class="app-sidebar-list">
         <template v-for="module in modules" :key="module.id">
-          <q-item-label v-if="!mini" header class="app-sidebar-module-label">
+          <q-item-label v-if="!mini && module.label" header class="app-sidebar-module-label">
             {{ module.label }}
           </q-item-label>
-          <q-separator v-else class="app-sidebar-mini-sep" />
+          <q-separator v-else-if="mini" class="app-sidebar-mini-sep" />
 
           <q-item
             v-for="child in module.children"

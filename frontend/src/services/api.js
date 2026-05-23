@@ -8,13 +8,15 @@ const client = axios.create({
 
 const TOKEN_KEY = 'assessor_api_token';
 const ALLOW_OFFLINE_DEMO = import.meta.env.VITE_ALLOW_OFFLINE_DEMO !== 'false';
-const USE_MOCK_FALLBACK = import.meta.env.DEV || import.meta.env.VITE_USE_MOCK_FALLBACK === 'true';
+// Mock fallback only enabled with explicit opt-in via VITE_USE_MOCK_FALLBACK=true
+const USE_MOCK_FALLBACK = import.meta.env.VITE_USE_MOCK_FALLBACK === 'true';
 
 function useMockFallback(error) {
   if (!USE_MOCK_FALLBACK) {
     return false;
   }
 
+  // Only fall back on actual network failures, not validation errors or business errors
   return !error?.response || error.response.status >= 500;
 }
 
@@ -118,7 +120,10 @@ export async function fetchMe() {
       return { ...DEMO_USER };
     }
 
-    clearStoredToken();
+    // Only clear token on actual auth failures (401/403), not on transient errors
+    if (error?.response?.status === 401 || error?.response?.status === 403) {
+      clearStoredToken();
+    }
     return null;
   }
 }
@@ -303,36 +308,8 @@ export async function fetchDashboard() {
 }
 
 export async function createProperty(payload) {
-  try {
-    const { data } = await client.post('/properties', payload);
-    return data;
-  } catch (error) {
-    if (!useMockFallback(error)) {
-      throw error;
-    }
-
-    return {
-      id: Date.now(),
-      ...payload,
-      tax_declarations: [
-        {
-          ...payload.tax_declaration,
-          owner: payload.owner,
-          classification: payload.classification,
-          actual_use: payload.actual_use
-        }
-      ],
-      documents: [],
-      activity_logs: [
-        {
-          id: Date.now(),
-          action: 'draft',
-          description: 'Local draft created while API is unavailable.',
-          created_at: new Date().toISOString()
-        }
-      ]
-    };
-  }
+  const { data } = await client.post('/properties', payload);
+  return data;
 }
 
 export async function updateProperty(propertyId, payload) {
@@ -351,12 +328,8 @@ export async function archiveProperty(propertyId) {
 }
 
 export async function addTaxDeclaration(propertyId, payload) {
-  try {
-    const { data } = await client.post(`/properties/${propertyId}/tax-declarations`, payload);
-    return data;
-  } catch {
-    return null;
-  }
+  const { data } = await client.post(`/properties/${propertyId}/tax-declarations`, payload);
+  return data;
 }
 
 export async function updateTaxDeclaration(propertyId, taxDeclarationId, payload) {
@@ -375,12 +348,8 @@ export async function archiveTaxDeclaration(propertyId, taxDeclarationId) {
 }
 
 export async function addAssessment(propertyId, taxDeclarationId, payload) {
-  try {
-    const { data } = await client.post(`/properties/${propertyId}/tax-declarations/${taxDeclarationId}/assessments`, payload);
-    return data;
-  } catch {
-    return null;
-  }
+  const { data } = await client.post(`/properties/${propertyId}/tax-declarations/${taxDeclarationId}/assessments`, payload);
+  return data;
 }
 
 export async function updateAssessment(propertyId, taxDeclarationId, assessmentRecordId, payload) {
@@ -402,12 +371,8 @@ export async function addDocument(propertyId, payload) {
     }
   });
 
-  try {
-    const { data } = await client.post(`/properties/${propertyId}/documents`, formData);
-    return data;
-  } catch {
-    return null;
-  }
+  const { data } = await client.post(`/properties/${propertyId}/documents`, formData);
+  return data;
 }
 
 export async function updateDocument(documentId, payload) {
@@ -431,6 +396,13 @@ export async function movePhysicalRecord(propertyId, documentId, payload) {
 export async function downloadDocumentFile(document) {
   const { data } = await client.get(`/documents/${document.id}/download`, { responseType: 'blob' });
   downloadBlob(data, document.file_name || `document-${document.id}`, document.mime_type || 'application/octet-stream');
+}
+
+export async function viewDocumentFile(document) {
+  const { data } = await client.get(`/documents/${document.id}/download`, { responseType: 'blob' });
+  const blob = new Blob([data], { type: document.mime_type || 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+  return url;
 }
 
 export async function digitizeDocument(documentId, payload) {
@@ -508,7 +480,16 @@ export async function fetchDigitizationQueue() {
 
 export async function downloadPropertyDossierExport(propertyId) {
   const { data } = await client.get(`/properties/${propertyId}/export/dossier`, { responseType: 'blob' });
-  downloadBlob(data, `property-${propertyId}-dossier.json`, 'application/json');
+  // Open the dossier HTML in a new window for printing/saving as PDF
+  const blob = new Blob([data], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const win = window.open(url, '_blank');
+  if (!win) {
+    // Fallback to download if popup blocked
+    downloadBlob(data, `property-${propertyId}-dossier.html`, 'text/html');
+  }
+  // Clean up after a delay
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
 export async function downloadPropertyActivityCsv(propertyId) {
@@ -518,6 +499,26 @@ export async function downloadPropertyActivityCsv(propertyId) {
 
 export async function fetchUsers() {
   const { data } = await client.get('/users');
+  return data;
+}
+
+export async function fetchOwners(params = {}) {
+  const { data } = await client.get('/owners', { params });
+  return data;
+}
+
+export async function fetchOwnerProperties(ownerId) {
+  const { data } = await client.get(`/owners/${ownerId}`);
+  return data;
+}
+
+export async function fetchOwnerDetail(ownerId) {
+  const { data } = await client.get(`/owners/${ownerId}`);
+  return data;
+}
+
+export async function fetchLoginActivity(params = {}) {
+  const { data } = await client.get('/auth/login-activity', { params });
   return data;
 }
 

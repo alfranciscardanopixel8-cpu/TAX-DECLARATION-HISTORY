@@ -33,6 +33,7 @@ class PropertyController extends Controller
             ])
             ->search($searchKeyword)
             ->when($request->filled('lot_number'), fn ($query) => $query->where('lot_number', $operator, '%'.$request->lot_number.'%'))
+            ->when($request->filled('property_kind'), fn ($query) => $query->where('property_kind', $request->property_kind))
             ->when($request->filled('municipality'), fn ($query) => $query->where('municipality', $request->municipality))
             ->when($request->filled('barangay'), fn ($query) => $query->where('barangay', $operator, '%'.$request->barangay.'%'))
             ->when($request->filled('classification'), fn ($query) => $query->where('classification', $request->classification))
@@ -93,7 +94,10 @@ class PropertyController extends Controller
     public function store(StorePropertyRequest $request): JsonResponse
     {
         $property = DB::transaction(function () use ($request) {
-            $property = Property::create($request->safe()->except(['owner', 'tax_declaration', 'assessment']));
+            $propertyData = $request->safe()->except(['owner', 'tax_declaration', 'assessment', 'extra']);
+            $propertyData['extra_attributes'] = $request->input('extra', []);
+
+            $property = Property::create($propertyData);
 
             $owner = Owner::firstOrCreate(
                 ['name' => $request->validated('owner.name')],
@@ -158,9 +162,11 @@ class PropertyController extends Controller
         $validated = $request->validate([
             'pin' => ['required', 'string', 'max:80'],
             'property_index_number' => ['nullable', 'string', 'max:80'],
-            'lot_number' => ['required', 'string', 'max:80'],
+            'property_kind' => ['nullable', 'string', 'in:Land,Building,Machinery'],
+            'lot_number' => ['nullable', 'string', 'max:80'],
             'survey_number' => ['nullable', 'string', 'max:80'],
             'title_number' => ['nullable', 'string', 'max:120'],
+            'land_pin_reference' => ['nullable', 'string', 'max:80'],
             'barangay' => ['required', 'string', 'max:120'],
             'municipality' => ['required', 'string', 'max:120'],
             'province' => ['nullable', 'string', 'max:120'],
@@ -170,7 +176,13 @@ class PropertyController extends Controller
             'unit_of_measure' => ['nullable', 'string', 'max:40'],
             'status' => ['nullable', 'string', 'max:40'],
             'remarks' => ['nullable', 'string'],
+            'extra' => ['nullable', 'array'],
         ]);
+
+        if (array_key_exists('extra', $validated)) {
+            $validated['extra_attributes'] = $validated['extra'] ?? [];
+            unset($validated['extra']);
+        }
 
         $oldValues = $property->toArray();
 
@@ -227,7 +239,7 @@ class PropertyController extends Controller
     {
         return $property->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'taxDeclarations.documents',
             'assessmentRecords.taxDeclaration',

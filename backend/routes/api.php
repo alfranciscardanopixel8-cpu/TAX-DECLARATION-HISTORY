@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->middleware('role:admin');
     Route::post('/users', [UserController::class, 'store'])->middleware('role:admin');
     Route::put('/users/{user}', [UserController::class, 'update'])->middleware('role:admin');
+    Route::get('/auth/login-activity', [AuthController::class, 'loginActivity'])->middleware('role:admin');
 
     Route::get('/properties/export.csv', [ExportController::class, 'propertiesCsv']);
     Route::get('/properties/import/template.csv', [PropertyImportController::class, 'template'])
@@ -41,6 +42,8 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('role:admin,assessor');
 
     Route::get('/properties/{property}/dossier', [PropertyController::class, 'dossier']);
+    Route::get('/owners', [\App\Http\Controllers\Api\OwnerController::class, 'index']);
+    Route::get('/owners/{owner}', [\App\Http\Controllers\Api\OwnerController::class, 'show']);
     Route::get('/properties/{property}/export', [ExportController::class, 'property']);
     Route::get('/properties/{property}/export/dossier', [ExportController::class, 'propertyDossier']);
     Route::get('/properties/{property}/export/activity.csv', [ExportController::class, 'propertyActivityCsv']);

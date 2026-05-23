@@ -13,12 +13,17 @@ class StorePropertyRequest extends FormRequest
 
     public function rules(): array
     {
+        $kind = $this->input('property_kind', 'Land');
+        $isLand = $kind === 'Land';
+
         return [
-            'pin' => ['required', 'string', 'max:80'],
+            'pin' => ['required', 'string', 'max:80', 'unique:properties,pin'],
+            'property_kind' => ['nullable', 'string', 'in:Land,Building,Machinery'],
             'property_index_number' => ['nullable', 'string', 'max:80'],
-            'lot_number' => ['required', 'string', 'max:80'],
+            'lot_number' => [$isLand ? 'required' : 'nullable', 'string', 'max:80'],
             'survey_number' => ['nullable', 'string', 'max:80'],
             'title_number' => ['nullable', 'string', 'max:120'],
+            'land_pin_reference' => ['nullable', 'string', 'max:80'],
             'barangay' => ['required', 'string', 'max:120'],
             'municipality' => ['required', 'string', 'max:120'],
             'province' => ['nullable', 'string', 'max:120'],
@@ -28,6 +33,7 @@ class StorePropertyRequest extends FormRequest
             'unit_of_measure' => ['nullable', 'string', 'max:40'],
             'status' => ['nullable', 'string', 'max:40'],
             'remarks' => ['nullable', 'string'],
+            'extra' => ['nullable', 'array'],
             'owner.name' => ['required', 'string', 'max:180'],
             'owner.address' => ['nullable', 'string'],
             'tax_declaration.td_number' => ['required', 'string', 'max:100'],
@@ -38,6 +44,7 @@ class StorePropertyRequest extends FormRequest
             'tax_declaration.assessment_level' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'tax_declaration.status' => ['nullable', 'string', 'max:40'],
             'tax_declaration.transaction_type' => ['nullable', 'string', 'max:80'],
+            'tax_declaration.actual_use' => ['nullable', 'string', 'max:80'],
             'tax_declaration.memoranda' => ['nullable', 'string'],
             'assessment.assessment_type' => ['nullable', 'string', 'max:80'],
             'assessment.area' => ['nullable', 'numeric', 'min:0'],

@@ -80,7 +80,7 @@ class PhysicalRecordMovementController extends Controller
 
         return response()->json($property->fresh()->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'assessmentRecords.taxDeclaration',
             'documents.taxDeclaration',

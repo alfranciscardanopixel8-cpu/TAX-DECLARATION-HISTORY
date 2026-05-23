@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // ─── USERS ───────────────────────────────────────────────
         User::updateOrCreate(
             ['email' => 'admin@assessor.local'],
             [
@@ -24,11 +25,31 @@ class DatabaseSeeder extends Seeder
         );
 
         User::updateOrCreate(
+            ['email' => 'assessor@assessor.local'],
+            [
+                'name' => 'Provincial Assessor',
+                'password' => 'password',
+                'role' => 'assessor',
+                'status' => 'Active',
+            ]
+        );
+
+        User::updateOrCreate(
             ['email' => 'records@assessor.local'],
             [
                 'name' => 'Records Staff',
                 'password' => 'password',
                 'role' => 'records_staff',
+                'status' => 'Active',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'viewer@assessor.local'],
+            [
+                'name' => 'Public Viewer',
+                'password' => 'password',
+                'role' => 'viewer',
                 'status' => 'Active',
             ]
         );

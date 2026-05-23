@@ -147,8 +147,15 @@ async function saveUser() {
     dialog.value = false;
     await loadUsers();
   } catch (error) {
-    const message = error.response?.data?.message || 'Unable to save user account.';
-    $q.notify({ type: 'negative', message });
+    console.error('User save error:', error, error?.response?.data);
+    const errors = error.response?.data?.errors;
+    if (errors) {
+      const firstError = Object.values(errors).flat()[0];
+      $q.notify({ type: 'negative', message: firstError, timeout: 6000 });
+    } else {
+      const message = error.response?.data?.message || error?.message || 'Unable to save user account.';
+      $q.notify({ type: 'negative', message, timeout: 6000 });
+    }
   } finally {
     saving.value = false;
   }
@@ -159,23 +166,31 @@ onMounted(loadUsers);
 
 <style scoped>
 .ws-dialog-card {
-  border-radius: 12px;
+  border-radius: 22px;
   width: min(560px, 96vw);
+  overflow: hidden;
+  box-shadow: 0 28px 60px rgba(17, 39, 72, 0.22);
 }
 
 .ws-dialog-card__head {
-  background: var(--ws-primary-dark, #0f3f46);
+  background: linear-gradient(90deg, #183154 0%, #245ea8 54%, #2f76d4 100%);
   color: #fff;
+  padding: 18px 24px;
+}
+
+.ws-dialog-card__head .text-h6 {
+  font-weight: 800;
 }
 
 .ws-form-grid {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .ws-form-grid__actions {
   grid-column: span 2;
+  padding-top: 8px;
 }
 
 @media (max-width: 600px) {

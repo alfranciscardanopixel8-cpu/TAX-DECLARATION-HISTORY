@@ -184,7 +184,7 @@ export const referenceOptions = {
   municipalities: ['Sample Municipality', 'Capital City'],
   classifications: ['Residential', 'Agricultural', 'Commercial', 'Industrial', 'Special'],
   statuses: ['Active', 'Draft', 'For Review', 'Cancelled', 'Superseded', 'Archived'],
-  transactionTypes: ['Original', 'Transfer', 'Revision', 'Subdivision', 'Consolidation', 'Reclassification', 'Correction'],
+  transactionTypes: ['Original', 'Transfer', 'General Revision', 'Revision', 'Subdivision', 'Consolidation', 'Reclassification', 'Correction', 'Physical Change', 'Dispute/Conflict', 'Reassessment'],
   documentTypes: ['Tax Declaration', 'Deed of Sale', 'Transfer Certificate of Title', 'Survey Plan', 'FAAS', 'Certification', 'Owner Request'],
   assessmentTypes: ['Land', 'Building', 'Machinery', 'Improvement', 'Special'],
   physicalStatuses: ['On File', 'For Scanning', 'Released', 'Returned', 'Missing', 'Archived']

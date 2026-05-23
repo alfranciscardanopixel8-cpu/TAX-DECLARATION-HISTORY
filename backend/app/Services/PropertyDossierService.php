@@ -10,7 +10,7 @@ class PropertyDossierService
     {
         $property->load([
             'taxDeclarations.owner',
-            'taxDeclarations.previousTaxDeclaration',
+            'taxDeclarations.previousTaxDeclaration.owner',
             'taxDeclarations.assessmentRecords',
             'taxDeclarations.documents.movements.user:id,name,role',
             'taxDeclarations.documents.digitizedBy:id,name,role',
