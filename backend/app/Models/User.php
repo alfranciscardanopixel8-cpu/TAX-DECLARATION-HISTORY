@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Permissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +23,8 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
+        'permission_grants',
+        'permission_denies',
     ];
 
     protected $hidden = [
@@ -34,28 +37,40 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'permission_grants' => 'array',
+            'permission_denies' => 'array',
         ];
+    }
+
+    /**
+     * Effective permission set: role defaults + grants - denies.
+     */
+    public function permissions(): array
+    {
+        return Permissions::effective(
+            $this->role,
+            $this->permission_grants ?? [],
+            $this->permission_denies ?? []
+        );
+    }
+
+    public function can_($permission): bool
+    {
+        return in_array($permission, $this->permissions(), true);
     }
 
     public function canManageRecords(): bool
     {
-        return in_array($this->role, [
-            self::ROLE_ADMIN,
-            self::ROLE_ASSESSOR,
-            self::ROLE_RECORDS_STAFF,
-        ], true);
+        return $this->can_('property.update') || $this->can_('property.create');
     }
 
     public function canApproveRecords(): bool
     {
-        return in_array($this->role, [
-            self::ROLE_ADMIN,
-            self::ROLE_ASSESSOR,
-        ], true);
+        return $this->can_('property.approve') || $this->can_('td.approve');
     }
 
     public function canAdminister(): bool
     {
-        return $this->role === self::ROLE_ADMIN;
+        return $this->role === self::ROLE_ADMIN || $this->can_('user.update');
     }
 }

@@ -30,16 +30,10 @@ const routes = [
         meta: { title: 'Property & TD Search' }
       },
       {
-        path: 'digitize',
-        name: 'workspace-digitize',
-        component: () => import('../pages/workspace/WorkspaceDigitizePage.vue'),
-        meta: { title: 'Scanning Queue' }
-      },
-      {
         path: 'activity',
         name: 'workspace-activity',
         component: () => import('../pages/workspace/WorkspaceActivityPage.vue'),
-        meta: { title: 'System Activity' }
+        meta: { title: 'Audit Logs' }
       },
       {
         path: 'staff',
@@ -48,10 +42,10 @@ const routes = [
         meta: { title: 'Staff Accounts', requiresAdmin: true }
       },
       {
-        path: 'import',
-        name: 'workspace-import',
-        component: () => import('../pages/workspace/WorkspaceImportPage.vue'),
-        meta: { title: 'Bulk Import', requiresImport: true }
+        path: 'security',
+        name: 'workspace-security',
+        component: () => import('../pages/workspace/WorkspaceSecurityPage.vue'),
+        meta: { title: 'Security & Roles', requiresAdmin: true }
       }
     ]
   },
@@ -100,10 +94,6 @@ router.beforeEach(async (to) => {
   }
 
   if (to.meta.requiresAdmin && !user.can_administer) {
-    return { name: 'workspace-dashboard' };
-  }
-
-  if (to.meta.requiresImport && !['admin', 'assessor'].includes(user.role)) {
     return { name: 'workspace-dashboard' };
   }
 

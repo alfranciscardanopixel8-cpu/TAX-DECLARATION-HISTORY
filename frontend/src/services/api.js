@@ -307,6 +307,21 @@ export async function fetchDashboard() {
   }
 }
 
+export async function fetchActivityLogs(params = {}) {
+  const { data } = await client.get('/activity-logs', { params });
+  return data;
+}
+
+export async function fetchActivityLogSummary() {
+  const { data } = await client.get('/activity-logs/summary');
+  return data;
+}
+
+export async function downloadActivityLogsCsv(params = {}) {
+  const { data } = await client.get('/activity-logs/export.csv', { params, responseType: 'blob' });
+  downloadBlob(data, `audit-logs-${new Date().toISOString().slice(0, 10)}.csv`, 'text/csv');
+}
+
 export async function createProperty(payload) {
   const { data } = await client.post('/properties', payload);
   return data;
@@ -405,33 +420,8 @@ export async function viewDocumentFile(document) {
   return url;
 }
 
-export async function digitizeDocument(documentId, payload) {
-  const formData = new FormData();
-
-  Object.entries(payload).forEach(([key, value]) => {
-    if (value !== null && value !== undefined && value !== '') {
-      formData.append(key, value);
-    }
-  });
-
-  const { data } = await client.post(`/documents/${documentId}/digitize`, formData);
-  return data;
-}
-
 export async function saveDocumentOcr(documentId, ocrText) {
   const { data } = await client.post(`/documents/${documentId}/ocr`, { ocr_text: ocrText });
-  return data;
-}
-
-export async function downloadPropertyImportTemplate() {
-  const { data } = await client.get('/properties/import/template.csv', { responseType: 'blob' });
-  downloadBlob(data, 'property-import-template.csv', 'text/csv');
-}
-
-export async function importPropertiesCsv(file) {
-  const formData = new FormData();
-  formData.append('file', file);
-  const { data } = await client.post('/properties/import', formData);
   return data;
 }
 
@@ -448,34 +438,6 @@ export async function downloadBackupJson() {
 export async function fetchDocumentMovements(documentId) {
   const { data } = await client.get(`/documents/${documentId}/movements`);
   return data;
-}
-
-export async function fetchDigitizationQueue() {
-  try {
-    const { data } = await client.get('/digitization-queue');
-    return data;
-  } catch (error) {
-    if (!useMockFallback(error)) {
-      throw error;
-    }
-
-    const items = mockProperties.flatMap((property) => (property.documents || [])
-      .filter((document) => document.needs_digitization || document.physical_copy_status === 'For Scanning')
-      .map((document) => ({
-        ...document,
-        property: {
-          id: property.id,
-          pin: property.pin,
-          lot_number: property.lot_number,
-          barangay: property.barangay,
-          municipality: property.municipality,
-          status: property.status
-        },
-        tax_declaration: property.tax_declarations?.find((td) => td.id === document.tax_declaration_id) || null
-      })));
-
-    return { count: items.length, items };
-  }
 }
 
 export async function downloadPropertyDossierExport(propertyId) {
@@ -522,6 +484,16 @@ export async function fetchLoginActivity(params = {}) {
   return data;
 }
 
+export async function fetchSecurityMatrix() {
+  const { data } = await client.get('/security/matrix');
+  return data;
+}
+
+export async function fetchLoginStats() {
+  const { data } = await client.get('/security/login-stats');
+  return data;
+}
+
 export async function createUser(payload) {
   const { data } = await client.post('/users', payload);
   return data;
@@ -529,5 +501,15 @@ export async function createUser(payload) {
 
 export async function updateUser(userId, payload) {
   const { data } = await client.put(`/users/${userId}`, payload);
+  return data;
+}
+
+export async function updateUserPermissions(userId, { grants, denies }) {
+  const { data } = await client.put(`/users/${userId}/permissions`, { grants, denies });
+  return data;
+}
+
+export async function resetUserPermissions(userId) {
+  const { data } = await client.delete(`/users/${userId}/permissions`);
   return data;
 }

@@ -31,42 +31,15 @@ export const workspaceModules = [
     ]
   },
   {
-    id: 'digitization',
-    label: 'Digitization',
-    icon: 'scanner',
-    children: [
-      {
-        name: 'workspace-digitize',
-        label: 'Scanning Queue',
-        icon: 'inventory_2',
-        caption: 'Physical records awaiting scan'
-      }
-    ]
-  },
-  {
     id: 'operations',
     label: 'Operations',
     icon: 'insights',
     children: [
       {
         name: 'workspace-activity',
-        label: 'System Activity',
-        icon: 'history',
-        caption: 'Recent actions across records'
-      }
-    ]
-  },
-  {
-    id: 'data',
-    label: 'Data',
-    icon: 'cloud_upload',
-    roles: ['admin', 'assessor'],
-    children: [
-      {
-        name: 'workspace-import',
-        label: 'Bulk Import',
-        icon: 'upload_file',
-        caption: 'CSV property and TD import'
+        label: 'Audit Logs',
+        icon: 'fact_check',
+        caption: 'Searchable audit trail of every change'
       }
     ]
   },
@@ -81,6 +54,12 @@ export const workspaceModules = [
         label: 'Staff Accounts',
         icon: 'group',
         caption: 'User access management'
+      },
+      {
+        name: 'workspace-security',
+        label: 'Security & Roles',
+        icon: 'shield',
+        caption: 'Roles, permissions, and login activity'
       }
     ]
   }

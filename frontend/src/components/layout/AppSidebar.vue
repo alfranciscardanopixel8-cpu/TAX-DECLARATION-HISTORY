@@ -1,20 +1,5 @@
 <template>
   <div class="app-sidebar" :class="{ 'app-sidebar--mini': mini }">
-    <div class="app-sidebar-top">
-      <q-avatar v-if="mini" square size="40px" class="sidebar-brand-mark">
-        <q-icon name="account_balance" size="22px" />
-      </q-avatar>
-      <template v-else>
-        <q-avatar square size="40px" class="sidebar-brand-mark">
-          <q-icon name="account_balance" size="22px" />
-        </q-avatar>
-        <div class="app-sidebar-brand-text">
-          <strong>Provincial Assessor</strong>
-          <span>Records system</span>
-        </div>
-      </template>
-    </div>
-
     <q-scroll-area class="app-sidebar-scroll">
       <q-list class="app-sidebar-list">
         <template v-for="module in modules" :key="module.id">
@@ -32,6 +17,7 @@
             active-class="app-sidebar-item--active"
             class="app-sidebar-item"
           >
+          
             <q-item-section avatar>
               <q-icon :name="child.icon" size="20px" />
             </q-item-section>
@@ -86,20 +72,6 @@ const modules = computed(() => visibleModules(sessionUser.value));
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.app-sidebar-top {
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  gap: 12px;
-  min-height: 64px;
-  padding: 14px 16px;
-}
-
-.app-sidebar--mini .app-sidebar-top {
-  justify-content: center;
-  padding: 14px 8px;
 }
 
 .sidebar-brand-mark {

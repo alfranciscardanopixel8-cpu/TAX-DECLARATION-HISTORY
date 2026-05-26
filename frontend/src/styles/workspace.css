@@ -1,5 +1,22 @@
 /* Provincial Assessor — unified workspace UI with TMVARI design system */
 
+html,
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
 .app-main-page,
 .ws-page {
   /* TMVARI Color System */
@@ -1429,4 +1446,78 @@ body {
     justify-content: flex-end;
     width: 100%;
   }
+}
+
+
+/* Required field indicator - shows red asterisk on labels */
+.app-main-page .q-field--with-bottom .q-field__label::after {
+  content: '';
+}
+
+.q-field[required] .q-field__label::after,
+.q-field.required-field .q-field__label::after {
+  content: ' *';
+  color: #dc2626;
+  font-weight: 800;
+}
+
+
+/* Keyboard Shortcuts Help Dialog */
+.shortcuts-card {
+  width: min(420px, 92vw);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.shortcuts-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: linear-gradient(90deg, #183154 0%, #245ea8 54%, #2f76d4 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.shortcuts-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shortcut-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(20, 39, 67, 0.08);
+}
+
+.shortcut-row:last-child {
+  border-bottom: none;
+}
+
+.shortcut-row span {
+  flex: 1;
+  color: #162742;
+  font-size: 0.92rem;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 4px 8px;
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  border: 1px solid #cbd5e1;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #162742;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }

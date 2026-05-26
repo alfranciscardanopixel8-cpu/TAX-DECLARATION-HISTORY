@@ -24,13 +24,16 @@ class PropertyController extends Controller
 
         $properties = Property::query()
             ->with([
-                'taxDeclarations.owner',
-                'taxDeclarations.assessmentRecords',
-                'taxDeclarations.documents',
-                'assessmentRecords.taxDeclaration',
-                'documents.movements.user:id,name,role',
-                'activityLogs.user:id,name,role',
+                // List view only needs the active TD + owner for the table.
+                // Heavy relations (movements, activity logs, assessments) load on demand via /dossier.
+                'taxDeclarations' => fn ($q) => $q->select(
+                    'id', 'property_id', 'owner_id', 'td_number', 'arp_number',
+                    'effectivity_year', 'classification', 'market_value',
+                    'assessed_value', 'status', 'transaction_type'
+                ),
+                'taxDeclarations.owner:id,name,address',
             ])
+            ->withCount(['taxDeclarations', 'documents'])
             ->search($searchKeyword)
             ->when($request->filled('lot_number'), fn ($query) => $query->where('lot_number', $operator, '%'.$request->lot_number.'%'))
             ->when($request->filled('property_kind'), fn ($query) => $query->where('property_kind', $request->property_kind))
@@ -66,7 +69,7 @@ class PropertyController extends Controller
                 'taxDeclarations',
                 fn ($tdQuery) => $tdQuery->where('effectivity_year', '<=', $request->integer('year_to'))
             ))
-            ->when($searchKeyword, function ($query) use ($searchKeyword, $operator) {
+            ->when($searchKeyword, function ($query) use ($searchKeyword) {
                 $query->orderByRaw(
                     config('database.default') === 'pgsql'
                         ? 'CASE WHEN lot_number ILIKE ? THEN 0 ELSE 1 END'
@@ -220,6 +223,8 @@ class PropertyController extends Controller
 
     public function destroy(Request $request, Property $property): JsonResponse
     {
+        abort_unless($request->user()?->canAdminister(), 403);
+
         $oldValues = $property->toArray();
 
         $property->update(['status' => 'Archived']);

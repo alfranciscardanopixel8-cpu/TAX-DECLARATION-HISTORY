@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Support\Permissions;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -14,7 +15,8 @@ class UserController extends Controller
     {
         $users = User::query()
             ->orderBy('name')
-            ->get(['id', 'name', 'email', 'role', 'status', 'created_at']);
+            ->get(['id', 'name', 'email', 'role', 'status', 'permission_grants', 'permission_denies', 'created_at'])
+            ->map(fn (User $user) => $this->payload($user));
 
         return response()->json($users);
     }
@@ -75,8 +77,57 @@ class UserController extends Controller
         return response()->json($this->payload($user->fresh()));
     }
 
+    /**
+     * Replace the user's permission overrides (grants + denies).
+     */
+    public function updatePermissions(Request $request, User $user): JsonResponse
+    {
+        abort_unless($request->user()?->canAdminister(), 403);
+
+        $allKeys = Permissions::allKeys();
+
+        $validated = $request->validate([
+            'grants' => ['nullable', 'array'],
+            'grants.*' => ['string', Rule::in($allKeys)],
+            'denies' => ['nullable', 'array'],
+            'denies.*' => ['string', Rule::in($allKeys)],
+        ]);
+
+        // Self-protection: an admin cannot deny themselves user.update or security.manage,
+        // otherwise they could lock themselves out of the panel.
+        if ($request->user()->id === $user->id) {
+            $denies = $validated['denies'] ?? [];
+            $protected = ['user.update', 'user.permissions', 'security.manage'];
+            $forbidden = array_intersect($denies, $protected);
+
+            abort_if(! empty($forbidden), 422, 'You cannot deny critical admin permissions for your own account: '.implode(', ', $forbidden));
+        }
+
+        $user->permission_grants = array_values(array_unique($validated['grants'] ?? []));
+        $user->permission_denies = array_values(array_unique($validated['denies'] ?? []));
+        $user->save();
+
+        return response()->json($this->payload($user->fresh()));
+    }
+
+    /**
+     * Reset overrides — the user reverts to their role's defaults.
+     */
+    public function resetPermissions(Request $request, User $user): JsonResponse
+    {
+        abort_unless($request->user()?->canAdminister(), 403);
+
+        $user->permission_grants = [];
+        $user->permission_denies = [];
+        $user->save();
+
+        return response()->json($this->payload($user->fresh()));
+    }
+
     private function payload(User $user): array
     {
+        $defaults = Permissions::defaultsForRole($user->role);
+
         return [
             'id' => $user->id,
             'name' => $user->name,
@@ -86,6 +137,11 @@ class UserController extends Controller
             'can_manage_records' => $user->canManageRecords(),
             'can_approve_records' => $user->canApproveRecords(),
             'can_administer' => $user->canAdminister(),
+            'permission_grants' => $user->permission_grants ?? [],
+            'permission_denies' => $user->permission_denies ?? [],
+            'role_defaults' => $defaults,
+            'permissions' => $user->permissions(),
+            'has_overrides' => ! empty($user->permission_grants ?? []) || ! empty($user->permission_denies ?? []),
             'created_at' => $user->created_at,
         ];
     }

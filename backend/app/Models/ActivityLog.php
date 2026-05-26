@@ -21,13 +21,10 @@ class ActivityLog extends Model
         'new_values',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'old_values' => 'array',
-            'new_values' => 'array',
-        ];
-    }
+    protected $casts = [
+        'old_values' => 'array',
+        'new_values' => 'array',
+    ];
 
     public function property(): BelongsTo
     {

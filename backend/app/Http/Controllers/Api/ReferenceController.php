@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class ReferenceController extends Controller
 {
+    /**
+     * Reference data is static. Cache for an hour to skip the round-trip on every page load.
+     */
     public function __invoke(): array
     {
-        return [
+        return Cache::remember('reference-options', 3600, fn () => [
             'classifications' => ['Residential', 'Agricultural', 'Commercial', 'Industrial', 'Special'],
             'statuses' => ['Active', 'Draft', 'For Review', 'Cancelled', 'Superseded', 'Archived'],
             'transaction_types' => ['Original', 'Transfer', 'Revision', 'Subdivision', 'Consolidation', 'Reclassification', 'Correction'],
@@ -21,6 +25,6 @@ class ReferenceController extends Controller
                 ['label' => 'Records Staff', 'value' => 'records_staff'],
                 ['label' => 'Viewer', 'value' => 'viewer'],
             ],
-        ];
+        ]);
     }
 }

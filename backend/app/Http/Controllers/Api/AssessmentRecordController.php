@@ -122,6 +122,7 @@ class AssessmentRecordController extends Controller
     {
         abort_unless($taxDeclaration->property_id === $property->id, 404);
         abort_unless($assessmentRecord->tax_declaration_id === $taxDeclaration->id, 404);
+        abort_unless($request->user()?->canAdminister(), 403);
 
         $oldValues = $assessmentRecord->toArray();
         $assessmentType = $assessmentRecord->assessment_type;

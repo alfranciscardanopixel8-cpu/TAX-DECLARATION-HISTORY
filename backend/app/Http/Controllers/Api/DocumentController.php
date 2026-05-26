@@ -148,6 +148,8 @@ class DocumentController extends Controller
 
     public function destroy(Request $request, Document $document): JsonResponse
     {
+        abort_unless($request->user()?->canAdminister(), 403);
+
         $property = $document->property;
         $oldValues = $document->toArray();
 

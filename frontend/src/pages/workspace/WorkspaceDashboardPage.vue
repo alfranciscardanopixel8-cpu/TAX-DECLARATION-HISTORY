@@ -241,7 +241,7 @@ const tdStatusTotal = computed(() => tdStatusData.value.reduce((s, x) => s + x.v
 const quickLinks = [
   { name: 'workspace-records', label: 'Search Records', icon: 'search' },
   { name: 'workspace-digitize', label: 'Digitization Queue', icon: 'scanner' },
-  { name: 'workspace-activity', label: 'System Activity', icon: 'history' }
+  { name: 'workspace-activity', label: 'Audit Logs', icon: 'fact_check' }
 ];
 
 function buildChartData(obj) {

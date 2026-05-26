@@ -136,6 +136,9 @@ class AuthController extends Controller
             'can_manage_records' => $user->canManageRecords(),
             'can_approve_records' => $user->canApproveRecords(),
             'can_administer' => $user->canAdminister(),
+            'permissions' => $user->permissions(),
+            'permission_grants' => $user->permission_grants ?? [],
+            'permission_denies' => $user->permission_denies ?? [],
         ];
     }
 }

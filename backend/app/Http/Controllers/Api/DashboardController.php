@@ -8,10 +8,19 @@ use App\Models\AssessmentRecord;
 use App\Models\Document;
 use App\Models\Property;
 use App\Models\TaxDeclaration;
+use Illuminate\Support\Facades\Cache;
 
 class DashboardController extends Controller
 {
+    public const CACHE_KEY = 'dashboard:overview';
+    public const CACHE_TTL = 60; // seconds
+
     public function __invoke(): array
+    {
+        return Cache::remember(self::CACHE_KEY, self::CACHE_TTL, fn () => $this->build());
+    }
+
+    protected function build(): array
     {
         return [
             'properties' => Property::count(),
@@ -62,5 +71,13 @@ class DashboardController extends Controller
                 ->limit(12)
                 ->get(['id', 'property_id', 'action', 'description', 'created_at', 'user_id']),
         ];
+    }
+
+    /**
+     * Helper used by other controllers to invalidate the dashboard cache after writes.
+     */
+    public static function bust(): void
+    {
+        Cache::forget(self::CACHE_KEY);
     }
 }

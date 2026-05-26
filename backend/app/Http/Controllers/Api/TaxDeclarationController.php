@@ -40,7 +40,7 @@ class TaxDeclarationController extends Controller
             'assessment.notes' => ['nullable', 'string'],
         ]);
 
-        DB::transaction(function () use ($property, $validated) {
+        DB::transaction(function () use ($request, $property, $validated) {
             $status = $validated['status'] ?? 'Draft';
             $activeDeclaration = $property->taxDeclarations()
                 ->where('status', 'Active')
@@ -107,7 +107,7 @@ class TaxDeclarationController extends Controller
             }
 
             $property->activityLogs()->create([
-                'user_id' => request()->user()?->id,
+                'user_id' => $request->user()?->id,
                 'tax_declaration_id' => $declaration->id,
                 'action' => 'tax_declaration_added',
                 'description' => "Tax declaration {$declaration->td_number} added to the property history.",
@@ -244,6 +244,7 @@ class TaxDeclarationController extends Controller
     public function destroy(Request $request, Property $property, \App\Models\TaxDeclaration $taxDeclaration): JsonResponse
     {
         abort_unless($taxDeclaration->property_id === $property->id, 404);
+        abort_unless($request->user()?->canAdminister(), 403);
 
         $oldValues = $taxDeclaration->toArray();
         $taxDeclaration->update(['status' => 'Cancelled']);

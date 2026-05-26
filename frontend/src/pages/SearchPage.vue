@@ -215,7 +215,7 @@
             <q-btn v-if="canApprove && selected.status !== 'Active'" outline no-caps color="positive" icon="verified" label="Approve" @click="approveSelectedProperty" />
             <q-btn outline no-caps color="primary" icon="print" label="Print" @click="printRecord" />
             <q-btn outline no-caps color="primary" icon="download" label="Export" @click="exportRecord" />
-            <q-btn v-if="sessionUser?.can_administer" outline no-caps color="negative" icon="delete_forever" label="Delete Property" @click="deleteSelectedProperty" />
+            <q-btn v-if="canDeleteProperty" outline no-caps color="negative" icon="delete_forever" label="Delete Property" @click="deleteSelectedProperty" />
           </div>
         </div>
 
@@ -626,7 +626,7 @@
                           <q-btn flat round dense color="primary" icon="visibility" @click="viewDocument(document)"><q-tooltip>View</q-tooltip></q-btn>
                           <q-btn flat round dense color="primary" icon="download" @click="downloadDocument(document)"><q-tooltip>Download</q-tooltip></q-btn>
                           <q-btn v-if="canManage" flat round dense color="primary" icon="edit" @click="openEditDocumentDialog(document)"><q-tooltip>Edit</q-tooltip></q-btn>
-                          <q-btn v-if="canManage" flat round dense color="negative" icon="delete" @click="confirmDeleteDocument(document)"><q-tooltip>Delete</q-tooltip></q-btn>
+                          <q-btn v-if="canDeleteDocument" flat round dense color="negative" icon="delete" @click="confirmDeleteDocument(document)"><q-tooltip>Delete</q-tooltip></q-btn>
                         </div>
                       </article>
                     </div>
@@ -658,7 +658,7 @@
                   <q-btn v-if="canManage" outline dense no-caps color="primary" icon="edit" label="Edit TD" @click="openEditDeclarationDialog(selectedTdEntry.tax_declaration)" />
                   <q-btn v-if="canApprove && selectedTdEntry.tax_declaration.status !== 'Active'" unelevated dense no-caps color="positive" icon="verified" label="Approve" @click="approveDeclaration(selectedTdEntry.tax_declaration)" />
                   <q-btn v-if="canManage && selectedTdEntry.tax_declaration.status !== 'Cancelled'" outline dense no-caps color="negative" icon="block" label="Cancel" @click="archiveDeclaration(selectedTdEntry.tax_declaration)" />
-                  <q-btn v-if="canManage" outline dense no-caps color="negative" icon="delete_forever" label="Delete" @click="deleteDeclaration(selectedTdEntry.tax_declaration)" />
+                  <q-btn v-if="canDeleteTd" outline dense no-caps color="negative" icon="delete_forever" label="Delete" @click="deleteDeclaration(selectedTdEntry.tax_declaration)" />
                 </div>
               </div>
 
@@ -978,7 +978,7 @@
                 Initial Tax Declaration
               </div>
               <div class="form-grid form-grid--3col">
-                <q-input v-model="form.tax_declaration.td_number" outlined dense label="TD Number" :rules="[v => !!v || 'Required']" />
+                <q-input v-model="form.tax_declaration.td_number" outlined dense label="TD Number" :rules="[v => !!v || 'Required']" class="required-field" />
                 <q-input v-model="form.tax_declaration.arp_number" outlined dense label="ARP Number" />
                 <q-input v-model.number="form.tax_declaration.effectivity_year" type="number" outlined dense label="Effectivity Year" />
                 <q-select v-model="form.tax_declaration.transaction_type" outlined dense label="Transaction Type" :options="newPropertyTransactionTypes" />
@@ -1100,7 +1100,7 @@
                 </span>
               </q-banner>
               <div class="form-grid">
-                <q-input v-model="declarationForm.owner.name" outlined dense label="New Owner / Claimant Name" :rules="[v => !!v || 'Required']" :hint="declarationForm.transaction_type === 'Transfer' ? 'Enter the new owner (buyer/transferee)' : ''" />
+                <q-input v-model="declarationForm.owner.name" outlined dense label="New Owner / Claimant Name" :rules="[v => !!v || 'Required']" class="required-field" :hint="declarationForm.transaction_type === 'Transfer' ? 'Enter the new owner (buyer/transferee)' : ''" />
                 <q-input v-model="declarationForm.owner.address" outlined dense label="New Owner Address" />
               </div>
             </div>
@@ -1112,9 +1112,9 @@
                 TD Identification
               </div>
               <div class="form-grid form-grid--3col">
-                <q-input v-model="declarationForm.td_number" outlined dense label="TD Number" :rules="[v => !!v || 'Required']" />
+                <q-input v-model="declarationForm.td_number" outlined dense label="TD Number" :rules="[v => !!v || 'Required']" class="required-field" />
                 <q-input v-model="declarationForm.arp_number" outlined dense label="ARP Number" />
-                <q-input v-model.number="declarationForm.effectivity_year" type="number" outlined dense label="Effectivity Year" :rules="[v => !!v || 'Required']" />
+                <q-input v-model.number="declarationForm.effectivity_year" type="number" outlined dense label="Effectivity Year" :rules="[v => !!v || 'Required']" class="required-field" />
               </div>
             </div>
 
@@ -1283,41 +1283,6 @@
       </q-card>
     </q-dialog>
 
-    <q-dialog v-model="digitizeDialog" persistent>
-      <q-card class="entry-card">
-        <q-card-section class="entry-card-header">
-          <div class="entry-card-header-content">
-            <q-icon name="scanner" size="28px" color="white" />
-            <div>
-              <div class="entry-card-title">Digitize Physical Record</div>
-              <div class="entry-card-subtitle">{{ selectedDocument?.document_type }} · {{ selectedDocument?.reference_number || selectedDocument?.file_name }}</div>
-            </div>
-          </div>
-          <q-btn flat round icon="close" color="white" aria-label="Close" v-close-popup />
-        </q-card-section>
-
-        <q-card-section class="entry-card-body">
-          <q-form @submit.prevent="saveDigitization">
-            <div class="form-section">
-              <div class="form-section-title"><q-icon name="cloud_upload" size="18px" />Upload Scan</div>
-              <q-file v-model="digitizeForm.file" outlined dense label="Scanned file (PDF or image)" accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff">
-                <template #prepend><q-icon name="scanner" /></template>
-              </q-file>
-            </div>
-            <div class="form-section">
-              <div class="form-section-title"><q-icon name="text_fields" size="18px" />OCR & Notes</div>
-              <q-input v-model="digitizeForm.ocr_text" outlined dense type="textarea" label="OCR Text (searchable)" hint="Paste extracted text from the scan for full-text search." autogrow class="q-mb-sm" />
-              <q-input v-model="digitizeForm.notes" outlined dense type="textarea" label="Digitization Notes" autogrow />
-            </div>
-            <div class="form-actions">
-              <q-btn flat no-caps label="Cancel" v-close-popup />
-              <q-btn unelevated no-caps color="primary" icon="scanner" label="Upload & Digitize" type="submit" :loading="saving" />
-            </div>
-          </q-form>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-
     <q-dialog v-model="assessmentDialog" persistent>
       <q-card class="entry-card entry-card--wide">
         <q-card-section class="entry-card-header">
@@ -1477,6 +1442,35 @@
       </q-card>
     </q-dialog>
 
+    <!-- Keyboard Shortcuts Help -->
+    <q-dialog v-model="shortcutsDialog">
+      <q-card class="shortcuts-card">
+        <q-card-section class="shortcuts-header">
+          <q-icon name="keyboard" size="22px" />
+          <strong>Keyboard Shortcuts</strong>
+          <q-btn flat round dense icon="close" v-close-popup color="white" class="q-ml-auto" />
+        </q-card-section>
+        <q-card-section class="shortcuts-body">
+          <div class="shortcut-row">
+            <kbd>Ctrl</kbd> + <kbd>K</kbd>
+            <span>Focus the search bar</span>
+          </div>
+          <div class="shortcut-row">
+            <kbd>Esc</kbd>
+            <span>Close the property panel</span>
+          </div>
+          <div class="shortcut-row">
+            <kbd>↑</kbd> / <kbd>↓</kbd>
+            <span>Navigate Tax Declarations list</span>
+          </div>
+          <div class="shortcut-row">
+            <kbd>?</kbd>
+            <span>Show this help</span>
+          </div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
     <!-- Confirmation Dialog -->
     <q-dialog v-model="confirmDialog" persistent>
       <q-card class="confirm-card">
@@ -1533,7 +1527,6 @@ import {
   fetchOwnerDetail,
   fetchReferences,
   movePhysicalRecord,
-  digitizeDocument,
   removeAssessment,
   updateDocument,
   updateProperty,
@@ -1570,7 +1563,6 @@ const documentDialog = ref(false);
 const editDocumentDialog = ref(false);
 const assessmentDialog = ref(false);
 const movementDialog = ref(false);
-const digitizeDialog = ref(false);
 const selectedDocument = ref(null);
 const editingDeclarationId = ref(null);
 const searchPage = ref(1);
@@ -1584,6 +1576,7 @@ const movementHistory = ref([]);
 const editingAssessmentId = ref(null);
 const showAdvancedFilters = ref(false);
 const activityDrawer = ref(false);
+const shortcutsDialog = ref(false);
 const showSuggestions = ref(false);
 const ownerDialog = ref(false);
 const ownerDetail = ref(null);
@@ -1606,6 +1599,10 @@ const filters = reactive({
 
 const canManage = computed(() => Boolean(sessionUser.value?.can_manage_records));
 const canApprove = computed(() => Boolean(sessionUser.value?.can_approve_records));
+const userPermissions = computed(() => sessionUser.value?.permissions || []);
+const canDeleteProperty = computed(() => userPermissions.value.includes('property.delete'));
+const canDeleteTd = computed(() => userPermissions.value.includes('td.delete'));
+const canDeleteDocument = computed(() => userPermissions.value.includes('document.delete'));
 
 const options = reactive({
   municipalities: [...referenceOptions.municipalities],
@@ -1910,11 +1907,6 @@ const documentForm = reactive(blankDocumentForm());
 const editDocumentForm = reactive(blankEditDocumentForm());
 const assessmentForm = reactive(blankAssessmentForm());
 const movementForm = reactive(blankMovementForm());
-const digitizeForm = reactive({
-  file: null,
-  notes: '',
-  ocr_text: ''
-});
 
 const columns = [
   { name: 'td', label: 'Current TD', field: 'td', align: 'left', sortable: true },
@@ -2213,15 +2205,11 @@ async function loadRecords() {
 
   try {
     const previousSelectedId = selected.value?.id;
-    const [propertyResult, totals] = await Promise.all([
-      fetchProperties(searchParams()),
-      fetchDashboard()
-    ]);
+    const propertyResult = await fetchProperties(searchParams());
 
     records.value = propertyResult.items || propertyResult;
     searchMeta.value = propertyResult.meta || null;
     syncMunicipalities(records.value);
-    dashboard.value = totals;
 
     const candidate = records.value.find((property) => property.id === previousSelectedId)
       || (records.value.length === 1 && keyword.value ? records.value[0] : null);
@@ -2238,6 +2226,16 @@ async function loadRecords() {
     $q.notify({ type: 'negative', message: 'Unable to load property records. Check that the API is running.' });
   } finally {
     loading.value = false;
+  }
+}
+
+// Dashboard totals are independent of the search — refresh on demand only.
+async function refreshDashboard() {
+  if (!sessionUser.value) return;
+  try {
+    dashboard.value = await fetchDashboard();
+  } catch (error) {
+    console.warn('Dashboard refresh failed', error);
   }
 }
 
@@ -2620,40 +2618,6 @@ function openDocumentDialogForScanning() {
     file: null
   });
   documentDialog.value = true;
-}
-
-function openDigitizeDialog(document) {
-  selectedDocument.value = document;
-  digitizeForm.file = null;
-  digitizeForm.notes = '';
-  digitizeForm.ocr_text = '';
-  digitizeDialog.value = true;
-}
-
-async function saveDigitization() {
-  if (!selectedDocument.value?.id || !digitizeForm.file) {
-    $q.notify({ type: 'warning', message: 'Select a scanned file to upload.' });
-    return;
-  }
-
-  saving.value = true;
-
-  try {
-    const updated = await digitizeDocument(selectedDocument.value.id, {
-      file: digitizeForm.file,
-      notes: digitizeForm.notes,
-      ocr_text: digitizeForm.ocr_text || undefined
-    });
-    await replaceSelected(updated);
-    digitizeDialog.value = false;
-    profileTab.value = 'documents';
-    await loadRecords();
-    $q.notify({ type: 'positive', message: 'Physical record digitized successfully.' });
-  } catch (error) {
-    notifyError(error, 'Unable to upload scan for this record.');
-  } finally {
-    saving.value = false;
-  }
 }
 
 function openAssessmentEditDialog(td, record) {
@@ -3186,16 +3150,54 @@ function onPinInput(formObj, fieldName) {
 
 // Extract the most useful error message from an axios error
 function errorMessage(error, fallback = 'Operation failed.') {
-  const errors = error?.response?.data?.errors;
-  if (errors) {
-    return Object.values(errors).flat()[0] || fallback;
+  // Network/connection issues
+  if (error?.code === 'ERR_NETWORK' || error?.message === 'Network Error') {
+    return 'Cannot reach the server. Please check your connection or try again.';
   }
-  return error?.response?.data?.message || error?.message || fallback;
+  if (error?.code === 'ECONNABORTED') {
+    return 'The server took too long to respond. Please try again.';
+  }
+
+  const status = error?.response?.status;
+
+  // Auth errors
+  if (status === 401) {
+    return 'Your session has expired. Please log in again.';
+  }
+  if (status === 403) {
+    return 'You do not have permission to perform this action.';
+  }
+  if (status === 404) {
+    return 'The requested record was not found.';
+  }
+  if (status === 422) {
+    // Validation errors
+    const errors = error?.response?.data?.errors;
+    if (errors) {
+      const firstError = Object.values(errors).flat()[0];
+      return firstError || 'Please check your input and try again.';
+    }
+    return error?.response?.data?.message || 'Please check your input and try again.';
+  }
+  if (status === 429) {
+    return 'Too many requests. Please wait a moment and try again.';
+  }
+  if (status >= 500) {
+    return 'A server error occurred. Please try again or contact support.';
+  }
+
+  // Generic server message (clean, no stack traces)
+  const serverMessage = error?.response?.data?.message;
+  if (serverMessage && !serverMessage.includes('Stack trace') && !serverMessage.includes('SQLSTATE')) {
+    return serverMessage;
+  }
+
+  return fallback;
 }
 
 // Show notification with the actual error from a caught error
 function notifyError(error, fallback) {
-  $q.notify({ type: 'negative', message: errorMessage(error, fallback), timeout: 6000 });
+  $q.notify({ type: 'negative', message: errorMessage(error, fallback), timeout: 5000 });
 }
 
 function numberFormat(value) {
@@ -3216,7 +3218,8 @@ function dateFormat(value) {
 
 async function bootstrapRecords() {
   await loadReferences();
-  await loadRecords();
+  // Records list and dashboard totals are independent — fire in parallel.
+  await Promise.all([loadRecords(), refreshDashboard()]);
 
   const propertyId = Number(route.query.propertyId);
   if (propertyId) {
@@ -3228,6 +3231,10 @@ onMounted(bootstrapRecords);
 
 // Keyboard shortcuts
 function handleKeyboardShortcut(e) {
+  // Don't intercept when typing in inputs
+  const tag = e.target?.tagName;
+  const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable;
+
   // Ctrl+K or Cmd+K to focus search
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
@@ -3236,11 +3243,38 @@ function handleKeyboardShortcut(e) {
       searchInput.focus();
       searchInput.select();
     }
+    return;
   }
-  // Escape to close property panel
-  if (e.key === 'Escape' && selected.value && !entryDialog.value && !declarationDialog.value && !documentDialog.value) {
+
+  // ? to show keyboard shortcuts help (when not typing)
+  if (!isTyping && e.key === '?') {
+    e.preventDefault();
+    shortcutsDialog.value = true;
+    return;
+  }
+
+  // Escape to close property panel (but only when no dialogs are open)
+  if (e.key === 'Escape' && selected.value && !entryDialog.value && !declarationDialog.value && !documentDialog.value && !editPropertyDialog.value && !assessmentDialog.value) {
     selected.value = null;
     dossier.value = null;
+    return;
+  }
+
+  // Arrow keys for TD list navigation (when not typing)
+  if (!isTyping && selected.value && taxDeclarationTimeline.value.length > 0) {
+    const currentIdx = taxDeclarationTimeline.value.findIndex(
+      (entry) => entry.tax_declaration?.id === selectedTdId.value
+    );
+
+    if (e.key === 'ArrowDown' || e.key === 'j') {
+      e.preventDefault();
+      const next = currentIdx < taxDeclarationTimeline.value.length - 1 ? currentIdx + 1 : 0;
+      selectTd(taxDeclarationTimeline.value[next]);
+    } else if (e.key === 'ArrowUp' || e.key === 'k') {
+      e.preventDefault();
+      const prev = currentIdx > 0 ? currentIdx - 1 : taxDeclarationTimeline.value.length - 1;
+      selectTd(taxDeclarationTimeline.value[prev]);
+    }
   }
 }
 
@@ -3964,6 +3998,11 @@ watch(() => ({
   border-color: rgba(47, 98, 175, 0.4);
   box-shadow: 0 4px 12px rgba(14, 34, 63, 0.1);
   transform: translateY(-1px);
+}
+
+.td-card:focus-visible {
+  outline: 2px solid #2f62af;
+  outline-offset: 2px;
 }
 
 .td-card--active {

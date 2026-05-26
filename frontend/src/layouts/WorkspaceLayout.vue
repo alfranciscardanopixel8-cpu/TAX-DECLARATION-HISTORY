@@ -149,10 +149,9 @@ const pageIcon = computed(() => {
   const map = {
     'workspace-dashboard': 'dashboard',
     'workspace-records': 'search',
-    'workspace-digitize': 'scanner',
-    'workspace-activity': 'history',
+    'workspace-activity': 'fact_check',
     'workspace-staff': 'group',
-    'workspace-import': 'upload_file'
+    'workspace-security': 'shield'
   };
   return map[route.name] || 'apps';
 });
